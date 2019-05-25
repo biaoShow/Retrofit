@@ -19,5 +19,11 @@ public class GetMap {
         map.put("end_time", endTime);
         return map;
     }
+    public static HashMap<String, String> testAppInterface() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name", "liyuanbiao");
+        map.put("pwd", "123456");
+        return map;
+    }
 
 }
