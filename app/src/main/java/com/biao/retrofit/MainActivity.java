@@ -71,8 +71,7 @@ public class MainActivity extends BaseActivity {
     private void testAppInterface() {
         RetrofitHelper.getInstance("http://172.16.60.57:8080").getRetrofitInterface()
                 .testAppInterface(GetMap.testAppInterface())
-                .subscribeOn(Schedulers.io())//请求在io线程
-                .observeOn(AndroidSchedulers.mainThread())//主线程显示数据
+                .compose(RxUtil.<TestAppModel>rxIoToMain())
                 .subscribe(new DefaultObserver<TestAppModel>() {
                     @Override
                     protected void onStart() {
